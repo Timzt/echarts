@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		1、盒子模型
+		ie模型：模型的范围也包括 margin、border、padding、content，和标准 W3C 盒子模型不同的是：IE 盒子模型的 content 部分包含了 border 和 padding。
+		w3c标准模型：并且 content 部分不包含其他部分。
+
+	</div>
+
+	<div>
+		<ul>
+			<li>这是内容1
+				<div>
+					我的内容1里面的内容1
+				</div>
+				<div>
+					我的内容1里面的内容2
+				</div>
+			</li>
+			<li>这是内容2</li>
+			<li>这是内容3</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	//点击任务li 显示是 当前列表的第几项
+	var oUl = document.querySelector('ul');
+	var oLi=document.querySelectorAll('ul li')
+	var oDiv=document.querySelectorAll('ul li div')
+		oUl.addEventListener('click',function(e){
+			var target=e.target;
+			//console.log(target.nodeName)或者target.tagName
+			if(target.nodeName.toLowerCase() === 'div'){
+				//console.log([].indexOf.call(oDiv , target))
+				console.log(oDiv[[].indexOf.call(oDiv , target)].innerHTML.replace(/\s+/g, ""))
+			}
+			
+		})	
+	// for(i=0;i<len;i++){
+	// 	oLi[i].index=i;
+	// 	oLi[i].addEventListener('click',function(e){
+	// 		console.log(this.index+1)			
+	// 	})	
+	// }
+	console.time(newArr)
+	var arr=[1,2,3,4,4,5,1];
+	var newArr=[];
+	// for(var i=0;i<arr.length;i++){
+	// 	if(newArr.indexOf(arr[i]) == -1){
+	// 		newArr.push(arr[i])
+	// 	}
+		
+	// }
+	// arr.forEach(function(n){
+	// 	if(newArr.indexOf(n) == -1){
+	// 		newArr.push(n)
+	// 	}
+	// })
+	// arr.forEach(n=>{
+	// 	if(newArr.indexOf(n) == -1){
+	// 		newArr.push(n)
+	// 	}
+	// })
+	// console.log(newArr)
+	// console.timeEnd(newArr)
+	// for (var i = 0; i < 5; i++) {
+	// 		setTimeout((function(num){
+	// 			console.log(num)
+	// 		})(i),1000)
+
+	// }
+	// for (var i = 0; i < 5; i++) {
+	// 	var foo=(function(i){
+	// 		setTimeout(function(){
+	// 			console.log(i)
+	// 		},1000)
+	// 		return foo
+	// 	})(i)
+
+	// }
+
+	// 变量提升和闭包
+	// 第一题
+	var scope = 'global scope';
+	function a(){
+		function b(){
+			console.log(scope);
+		}
+		return b;//此处和下面不一样
+		var scope = 'local scope';
+	}
+	a()();//undefined  此处和下面不一样
+
+	//第二题
+	var scope = 'global scope';
+	function a(){
+		var scope = 'local scope';
+		function b(){
+			console.log(scope);
+		}
+		return b();
+		
+	}
+	a();//local scope
+	</script>
+</body>
+</html>

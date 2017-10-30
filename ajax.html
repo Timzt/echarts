@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax formData</title>
+	<link type="text/css" rel="stylesheet" href="http://css2.pingan.com/app_series/pazl/assets/css/public.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	
+	<button id="btnPost">提交bhtml数据</button>
+	<div id="divTipsPOST">
+
+	</div>
+	<button id="btnGet">请求bphp数据</button>
+	<div id="divTipsGET">
+		
+	</div>
+	<div id="app">
+<div class="progressive">
+  <img class="preview lazy" data-src="http://www.daiwei.org/index/images/img/indeximg.jpg" src="http://www.daiwei.org/index/images/img/indeximg.jpg" />
+</div>
+	</div>
+	
+	<form id="frmLogin" action="login.php" method="POST"></form>
+
+	
+	<p><div>
+		<div>222</div>
+	</div>
+		<label>请选择文件：</label>
+		<input type="file" id='file'>
+		<input type="button" value="读取图像" id="one">
+		<input type="button" value="读取二进制" id="two">
+		<input type="button" value="读取文本文件" id="three">
+	</p>
+	<div id="result">
+
+	</div>
+	
+	<p>-----------拖放案例--------</p>
+	<div id="dragme" draggable='true' style="width: 200px;border:1px solid red">	
+		请拖放
+		
+	</div>
+	<div id="text" style="width: 200px; height: 200px; border: 1px solid gray">
+	</div>
+
+	<div id="main" class="main main_init">
+		<div id="content">
+			<div id="mainHead" class="main-head">
+				<div class="inforSummaryArea">
+					<p class="inforSummaryTit">BUSINESS MODEL</p>
+					<h1 class="inforSummaryTit2">业务模式</h1>
+					<p class="inforSummaryTxt">公司的主要业务模式包括设备租赁、售后回租赁、转租赁、杠杆租赁、委托租赁、项目租赁、经营租赁等。</p>
+				</div>
+				</div>
+					<div id="mainBody" class="main-body">
+					<div class="mainCont J_onlyIndex">
+					<img src="http://img2.pingan.com/app_series/pazl/assets/images/yewumoshi/img01.jpg?t=20161229" width="100%" alt="业务模式">
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="require/require.js" defer async="true" data-main='require/main-built'></script><!--指定网页程序的主模块-->
+	<script src='index.js'></script>
+
+	<script>
+		
+		// window.onload=function(){
+		// 	var btnPost=document.getElementById('btnPost');
+		// 	var btnGet=document.getElementById('btnGet');
+		// 	var objXmlHttp = null ;
+ 	// 		var divTipsPOST=document.getElementById('divTipsPOST');
+ 	// 		var divTipsGET=document.getElementById('divTipsGET');
+ 	// 		var src='images/loading.gif';
+ 	// 		function CreateXMLHTTP(...argument) {
+	 // 				if(window.ActiveXObject){
+	 // 					objXmlHttp=new ActiveXObject('Microsoft.XMLHTTP');
+	 // 				}else{
+	 // 					if(window.XMLHttpRequest){
+	 // 						objXmlHttp=new XMLHttpRequest();
+	 // 					}else{
+	 // 						console.log('初始化XMLHTTP 错误！')
+	 // 					}
+	 // 				}
+	 // 			}
+		// 	btnPost.addEventListener('click',function(){
+		// 		divTipsPOST.innerHTML=''
+	 // 			PostSendData(src)
+	 			
+	 // 			function PostSendData(src){
+	 // 				divTipsPOST.innerHTML='<img title="正在加载...." src='+src+' />';
+	 // 				var strSendUrl='b.php?date='+Date();
+	 // 				CreateXMLHTTP(1,2);
+	 // 				objXmlHttp.open('POST',strSendUrl ,true)
+	 // 				objXmlHttp.onreadystatechange=function(){
+	 // 					if(objXmlHttp.readyState == 4 && objXmlHttp.status == 200){
+	 // 							//显示获取的内容
+	 // 							console.log('POST提交成功 200');
+
+	 // 							divTipsPOST.innerHTML=objXmlHttp.responseText;
+	 // 							console.log(objXmlHttp.getAllResponseHeaders())
+	 // 					}
+	 // 				}
+	 // 				objXmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	 // 				var postData={"name":'Tim','age':24}
+	 // 				postData = (function(obj){ // 转成post需要的字符串.  
+		// 			    var str = "";  
+					   
+		// 			    for(var prop in obj){  
+		// 			        str += prop + "=" + obj[prop] + "&"  
+		// 			    }  
+		// 			    return str;  
+		// 			})(postData); 
+	 // 				objXmlHttp.send(postData)//send发送设置的请求
+	 // 			}
+		// 	},false)
+
+		// 	btnGet.addEventListener('click',function(){
+		// 		divTipsGET.innerHTML=''
+		// 		GetSendData(src)
+
+	 // 			function GetSendData(src){
+	 // 				divTipsGET.innerHTML='<img title="正在加载...." src='+src+' />';
+	 // 				var strSendUrl='b.html?name=Tim&date='+Date();
+	 // 				CreateXMLHTTP(1,2);
+	 // 				objXmlHttp.open('GET',strSendUrl ,true)
+	 // 				objXmlHttp.onreadystatechange=function(){
+	 // 					if(objXmlHttp.readyState == 4 && objXmlHttp.status == 200){
+	 // 							//显示获取的内容
+	 // 							console.log('GET请求成功 200');
+	 							
+	 // 							divTipsGET.innerHTML=objXmlHttp.responseText;
+	 // 							console.log(objXmlHttp.getAllResponseHeaders())
+	 // 					}
+	 // 				}
+	 // 				objXmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	 				
+	 // 				objXmlHttp.send(null)//send发送设置的请求
+	 // 			}
+		// 	},false)
+		// }
+		// jq
+
+		window.onload=function(){
+			(function(){
+		      new Progressive({
+		        el: '#app',
+		        lazyClass: 'lazy',
+		        removePreview: true,
+		        scale: true
+		      }).fire()
+		    })()
+			//FileReader
+			var file   = document.getElementById('file');
+			var one    = document.getElementById('one')
+			if(typeof FileReader == 'undefined'){
+				alert('13315656');
+				file.setAttribute('disabled','disabled');
+			}
+			one.addEventListener('click',function(){
+				  fetch('http://www.ls-tim.com/vue/get.json', {body:JSON.stringify(content)})
+				  .then(handleResponse)
+				  .then(data => console.log(data))
+				  .then(error =>{if(error){console.log(error)}else{console.log('判断error为否：正常')}})
+
+				function handleResponse (response) {
+				  let contentType = response.headers.get('content-type')
+				  if (contentType.includes('application/json')) {
+				    return handleJSONResponse(response)
+				  } else if (contentType.includes('text/html')) {
+				    return handleTextResponse(response)
+				  } else {
+				    // Other response types as necessary. I haven't found a need for them yet though.
+				    throw new Error('Sorry, content-type ${contentType} not supported')
+				  }
+				}
+
+				function handleJSONResponse (response) {
+				  return response.json()
+				    .then(json => {
+				      if (response.ok) {
+				        return json
+				      } else {
+				        return Promise.reject(Object.assign({}, json, {
+				          status: response.status,
+				          statusText: response.statusText
+				        }))
+				      }
+				    })
+				}
+				function handleTextResponse (response) {
+				  return response.text()
+				    .then(text => {
+				      if (response.ok) {
+				        return json
+				      } else {
+				        return Promise.reject({
+				          status: response.status,
+				          statusText: response.statusText,
+				          err: text
+				        })
+				      }
+				    })
+				}
+				readDataURL();
+				function readDataURL(){
+					var file =document.getElementById('file').files[0]
+					if(!/image\/\w+/.test(file.type)){
+						console.log('请保存文件为图像类型');
+						return false;
+					}
+					var reader = new FileReader();
+					// readDataURL readBinaryString readText
+					
+					reader.onload = function(e){
+						var result = document.getElementById('result');
+						//console.log(this.result)// base64
+						var html='<img src="'+this.result+'" alt="" />'
+						result.innerHTML+=html;
+						console.log('加载完成')
+					}
+					reader.onprogress=function(){
+						console.log('进行中')
+					}
+					reader.onabort=function(){
+						console.log('中止')
+					}
+					reader.onerror=function(){
+						console.log('出错')
+					}
+					reader.onloadstart=function(){
+						console.log('加载开始')
+					}
+					reader.onloadend=function(){
+						console.log('加载结束')
+					}
+					reader.readAsDataURL(file);
+
+				}
+			})
+			two.addEventListener('click',function(){
+				readBinaryString();
+				function readBinaryString(){
+					var file =document.getElementById('file').files[0]
+					var reader = new FileReader();
+					reader.readAsBinaryString(file);
+					reader.onload = function(f){
+						var result = document.getElementById('result');
+						result.innerHTML=this.result
+						
+					}
+					
+
+				}
+			})
+
+			three.addEventListener('click',function(){
+				readText();
+				function readText(){
+					var file =document.getElementById('file').files[0]
+					var reader = new FileReader();
+					reader.readAsText(file,'gb2312');
+					reader.onload = function(f){
+						var result = document.getElementById('result');
+						result.innerHTML=this.result
+					}
+				}
+			})
+			init();
+			function init(){
+				function $(id){
+					return typeof id=== 'string'?document.getElementById(id):id;
+				}
+				var img=document.createElement("img");
+				var dragIcon =$('dragme').appendChild(img)
+				dragIcon.src='http://static.blog.csdn.net/images/ico_report.png'
+				//拖放开始
+				$('dragme').addEventListener('dragstart',function(e){
+					console.log(e.pageX)
+					//向 dataTransfer 对象追加数据
+					var dt=e.dataTransfer;
+					//自定义图标
+					dt.setDragImage(dragIcon , -10 , -10)
+					dt.effectAllowed='drop';//用来指定元素被拖放时所允许的视觉效果.
+					dt.setData('text/plain','klsjsljksjlks')
+				},false)
+				//拖放结束
+				$('text').addEventListener('dragend',function(e){
+					console.log('end')
+					//不执行默认处理（拒绝被拖放）
+					e.preventDefault();
+				},false)
+				
+				//drop被拖放
+				$("text").addEventListener('drop' , function(e){
+					console.log('end2')
+					//从dataTransfer对象哪里获取数据
+					var dt = e.dataTransfer;
+					var text= dt.getData('text/plain')
+					$('text').textContent += text;
+					//不执行默认处理（拒绝被拖放
+					e.preventDefault();
+					//阻止冒泡
+					e.stopPropagation();
+				},false)
+			}
+
+			//设置页面属性，不执行默认处理（拒绝被拖放）
+			document.ondragover = function(e){e.preventDefault();}
+			document.ondrop = function(e){e.preventDefault();}
+
+			function parent(){
+				this.a=true;
+				return this.a
+			}
+			parent.prototype.getParent=function(){
+				return this.a;
+			}
+			function child(){
+				this.b=false;
+			}
+			child.prototype = new parent();
+			child.prototype.getChild=function(){
+				return this.b;
+			}
+			var instance = new child();
+			console.log(instance.getChild())
+		}
+	</script>
+</body>
+</html>

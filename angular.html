@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular</title>
+</head>
+<body ng-app="myApp" ng-controller='myCtrl'>
+
+	<div ng-init="myVar = 'http://www.runoob.com/wp-content/uploads/2014/06/angular.jpg'">
+	<h1>Angular</h1>
+	<img ng-src="{{myVar}}">
+	</div>
+	<div>{{myWelcome}}</div>
+
+	<p>该实例可以使用原生的 src 输出，但是使用 AngularJS 代码插入值，使用 ng-src 属性更好。</p>
+	<input type="text" id="a">
+	<span id="b"></span>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script type="text/javascript" src='require/ng.js'></script>
+	<script>
+	var obj = {};
+	Object.defineProperty(obj,'hello',{
+		set:function(newVal){
+			document.getElementById('a').value = newVal;
+			document.getElementById('b').innerHTML=newVal;
+		}
+	})
+	document.addEventListener('keyup',function(e){
+			obj.hello=e.target.value;
+		}
+	)
+	</script>
+</body>
+</html>

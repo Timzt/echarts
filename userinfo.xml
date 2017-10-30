@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding="utf-8" ?>
+<info>
+	<user id='1'>
+		<name>Tim</name>
+		<sex>男</sex>
+		<email>1064898699@qq.com</email>
+	</user>
+	<user id='2'>
+		<name>Ls</name>
+		<sex>女</sex>
+		<email>1064898699@qq.com</email>
+	</user>
+</info>
